@@ -1,18 +1,28 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { FileIcon } from 'react-file-icon';
+import { FileIcon, defaultStyles } from "react-file-icon";
 import prettyBytes from "pretty-bytes";
 import { FileType } from "@/typings";
+import { COLOR_EXTENSION_MAP } from "@/constants";
 
 export const columns: ColumnDef<FileType>[] = [
   {
     accessorKey: "type",
     header: "type",
     cell: ({ renderValue, ...props }) => {
-        const type = renderValue() as string
-        const extension: string = type.split('/')[1]
-      return <div className="w-10"><FileIcon</div>;
+      const type = renderValue() as string;
+      const extension: string = type.split("/")[1];
+      return (
+        <div className="w-10">
+          <FileIcon
+            extension={extension}
+            labelColor={COLOR_EXTENSION_MAP[extension]}
+            // @ts-ignore
+            {...defaultStyles[extension]}
+          />
+        </div>
+      );
     },
   },
   {
