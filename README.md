@@ -51,6 +51,7 @@ npx shadcn-ui@latest add button
 npx shadcn-ui@latest add dropdown-menu
 npx shadcn-ui@latest add table
 npm install @tanstack/react-table
+npx shadcn-ui@latest add skeleton
 ```
 [next-themes](https://www.npmjs.com/package/next-themes)
 ```bash
