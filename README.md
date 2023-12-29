@@ -74,3 +74,7 @@ npm i pretty-bytes
 npm i react-file-icon
 npm i --save-dev @types/react-file-icon
 ```
+[zustand](https://github.com/pmndrs/zustand) - State management library
+```bash
+npm install zustand 
+```
