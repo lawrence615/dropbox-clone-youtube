@@ -18,6 +18,7 @@ import {
 import { FileType } from "@/typings";
 import { Button } from "../ui/button";
 import { PencilIcon, TrashIcon } from "lucide-react";
+import { useAppState } from "@/store/store";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -34,13 +35,21 @@ export function DataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
   });
 
+  const [setFileId, setFilename, setIsDeleteModalOpen, setIsRenameModalOpen] =
+    useAppState((state) => [
+      state.setFileId,
+      state.setFilename,
+      state.setIsDeleteModalOpen,
+      state.setIsRenameModalOpen,
+    ]);
+
   const openDeleteModal = (fieldId: string) => {
-    setField(fieldId);
+    setFileId(fieldId);
     setIsDeleteModalOpen(true);
   };
 
   const openRenameModal = (fieldId: string, filename: string) => {
-    setField(fieldId);
+    setFileId(fieldId);
     setFilename(filename);
     setIsRenameModalOpen(true);
   };
@@ -86,10 +95,12 @@ export function DataTable<TData, TValue>({
                       </div>
                     ) : cell.column.id === "filename" ? (
                       <p
-                        onClick={() => {
-                          console.log("Edit");
-                          // openRenameModal((row.original as FileType).id,(row.original as FileType).filename)
-                        }}
+                        onClick={() =>
+                          openRenameModal(
+                            (row.original as FileType).id,
+                            (row.original as FileType).filename
+                          )
+                        }
                         className="underline flex items-center text-blue-500 hover:cursor-pointer"
                       >
                         {cell.getValue() as string}{" "}
@@ -103,10 +114,9 @@ export function DataTable<TData, TValue>({
                 <TableCell key={(row.original as FileType).id}>
                   <Button
                     variant={"outline"}
-                    onClick={() => {
-                      console.log("Delete:", (row.original as FileType).id);
-                      // openDeleteModal((row.original as FileType).id)
-                    }}
+                    onClick={() =>
+                      openDeleteModal((row.original as FileType).id)
+                    }
                   >
                     <TrashIcon size={20} />
                   </Button>
