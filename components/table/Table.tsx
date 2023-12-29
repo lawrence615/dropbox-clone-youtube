@@ -19,6 +19,7 @@ import { FileType } from "@/typings";
 import { Button } from "../ui/button";
 import { PencilIcon, TrashIcon } from "lucide-react";
 import { useAppState } from "@/store/store";
+import { DeleteModal } from "../DeleteModal";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -49,7 +50,7 @@ export function DataTable<TData, TValue>({
   };
 
   const openRenameModal = (fieldId: string, filename: string) => {
-    setFileId(fieldId);
+    setFileId(fieldId);   
     setFilename(filename);
     setIsRenameModalOpen(true);
   };
@@ -82,6 +83,7 @@ export function DataTable<TData, TValue>({
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
               >
+
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
                     {cell.column.id === "timestamp" ? (
@@ -131,6 +133,7 @@ export function DataTable<TData, TValue>({
             </TableRow>
           )}
         </TableBody>
+        <DeleteModal />
       </Table>
     </div>
   );
