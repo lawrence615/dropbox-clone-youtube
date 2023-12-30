@@ -80,3 +80,7 @@ npm i --save-dev @types/react-file-icon
 ```bash
 npm install zustand 
 ```
+[react-hot-toast](https://react-hot-toast.com/)
+```bash 
+npm install react-hot-toast
+```
