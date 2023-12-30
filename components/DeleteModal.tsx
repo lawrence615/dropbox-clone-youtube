@@ -76,7 +76,7 @@ export function DeleteModal() {
             type="submit"
             size="sm"
             className="px-3 flex-1"
-            variant={"secondary"}
+            variant={"destructive"}
             onClick={() => deleteFile()}
           >
             <span className="sr-only">Delete</span>
