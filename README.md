@@ -1,6 +1,6 @@
 ## About
 
-This Next.js project serves as a basic replica of Dropbox. It demonstrates the implementation of file upload, renaming, and deletion functionalities. The project was crafted by adhering to Sonny Sangha's tutorial titled "Let’s build Dropbox 2.0 with NEXT.JS 14! (React, Clerk, Shadcn, Firebase, Drag/Drop, CRUD, TS)."
+This Next.js 14 project serves as a basic replica of Dropbox. It demonstrates the implementation of file upload, renaming, and deletion functionalities. The project was crafted by adhering to Sonny Sangha's tutorial titled "Let’s build Dropbox 2.0 with NEXT.JS 14! (React, Clerk, Shadcn, Firebase, Drag/Drop, CRUD, TS)."
 
 File data and details are stored in Firebase, while Clerk handles the authentication process. To utilize both services, it is necessary to create accounts for Firebase and Clerk.
 
