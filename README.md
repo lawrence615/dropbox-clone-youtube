@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It is a simple clone of Dropbox that shows how to upload, rename and delete files. Built by following Sonny Sangha's [tutorial](https://www.youtube.com/watch?v=FdEY-ZnEikg) (Let’s build Dropbox 2.0 with NEXT.JS 14! (React, Clerk, Shadcn, Firebase, Drag/Drop, CRUD, TS)). Files and file details are stored in [Firebase](https://firebase.google.com/), and [clerk](https://clerk.com/) is used for authentication. For both services, you will need to create accounts.
 
 ## Getting Started
 
@@ -84,3 +84,6 @@ npm install zustand
 ```bash 
 npm install react-hot-toast
 ```
+
+## Environment configuration
+Start by generating a .env.local file within the project's root directory. Subsequently, navigate to your Clerk account and add a new application. In the left-hand menu, of the newly created app, access the API Keys section under Developers. Locate and note down the NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY. Paste these keys into the .env.local file.
